@@ -49,7 +49,9 @@ The virtual machine, named `Domain-Controller`, was configured as a domain contr
 
 For networking, `Network Adapter 1` was enabled and attached to `NAT` to allow internet access. `Network Adapter 2` was connected to an `internal network` named `intnet` to facilitate isolated communication between lab machines without external exposure.
 
+<img width="1386" height="597" alt="Image" src="https://github.com/user-attachments/assets/44180757-445a-42e5-a6d1-699e6107daf0" />
 
+<img width="1385" height="595" alt="Image" src="https://github.com/user-attachments/assets/72c5847e-75b4-4197-a930-c974a3273bbf" />
 ---
 
 ### Step 3: `Windows Setup`
