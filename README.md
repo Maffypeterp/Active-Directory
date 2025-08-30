@@ -126,8 +126,7 @@ Next, we navigated to `Tools` > `Routing and Remote Access` and launched the Rou
 
 Back in `Server Manager`, we launched the `Add Roles and Features` Wizard again to install the `DHCP Server` role, enabling the server to assign IP addresses dynamically within the network.
 
-
-<img width="761" height="528" alt="Image" src="https://github.com/user-attachments/assets/a49b7a9a-c504-43de-a06a-0b6510518195" />
+<img width="779" height="554" alt="Lab 61" src="https://github.com/user-attachments/assets/2ba6c860-10d4-4a5e-b1cf-945f01291840" /></br>
 
 
 We navigated to `Tools` > `DHCP` and launched the `New Scope Wizard` to configure a DHCP scope. We named the scope `172.16.0.100-200` and set the IP address range from `172.16.0.100` to `172.16.0.200` with a subnet mask of `255.255.255.0` (prefix length 24). The router (default gateway) was set to `172.16.0.1`, and the parent domain was specified as `mydomain.com`. After activating, authorizing, and refreshing the DHCP server, its status displayed a green icon indicating it was functioning properly.
@@ -170,9 +169,14 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
 }
 ```
 **Results:**
+
+<img width="761" height="528" alt="Image" src="https://github.com/user-attachments/assets/a49b7a9a-c504-43de-a06a-0b6510518195" />
+
+
 Before running the script to create all 1,000 users, I tested its functionality by manually inserting my name, `Briana Willis`, as the first entry in the `names.txt` file. After executing the PowerShell script, a total of 1,001 users were created in Active Directory, confirming that the script worked as intended. The test user account `bwillis` was successfully generated using the naming convention implemented in the script, verifying that both the account creation logic and OU assignment were functioning properly.
 
 ---
+
 ## 👣 STEP-BY-STEP: SETTING UP THE CLIENT
 
 ### Step 1: `Windows 10` Virtual Machine Creation and Provisioning
