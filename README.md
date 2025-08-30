@@ -117,7 +117,8 @@ In `Server Manager`, we returned to `Add Roles and Features` to install the `Rem
 
 Next, we navigated to `Tools` > `Routing and Remote Access` and launched the Routing and Remote Access Server Setup Wizard. We proceeded to configure `NAT` by selecting our internet-facing network interface, named `Internet`, to provide network address translation for internal clients. Upon successful configuration, the domain controller (local server) displayed a green status arrow, indicating the service was running properly.
 
-<img width="783" height="555" alt="Image" src="https://github.com/user-attachments/assets/f5bb9ea1-0122-40ec-b661-c2ed9579e535" />
+
+<img width="625" height="446" alt="Image" src="https://github.com/user-attachments/assets/026b905e-a508-4de8-b47a-320a349b6c71" />
 
 ---
 
@@ -125,10 +126,10 @@ Next, we navigated to `Tools` > `Routing and Remote Access` and launched the Rou
 
 Back in `Server Manager`, we launched the `Add Roles and Features` Wizard again to install the `DHCP Server` role, enabling the server to assign IP addresses dynamically within the network.
 
-<img width="625" height="446" alt="Image" src="https://github.com/user-attachments/assets/026b905e-a508-4de8-b47a-320a349b6c71" />
-
 
 <img width="761" height="528" alt="Image" src="https://github.com/user-attachments/assets/a49b7a9a-c504-43de-a06a-0b6510518195" />
+
+
 We navigated to `Tools` > `DHCP` and launched the `New Scope Wizard` to configure a DHCP scope. We named the scope `172.16.0.100-200` and set the IP address range from `172.16.0.100` to `172.16.0.200` with a subnet mask of `255.255.255.0` (prefix length 24). The router (default gateway) was set to `172.16.0.1`, and the parent domain was specified as `mydomain.com`. After activating, authorizing, and refreshing the DHCP server, its status displayed a green icon indicating it was functioning properly.
 
 <img width="167" height="172" alt="Lab 77" src="https://github.com/user-attachments/assets/cbfe1307-c73c-4d5b-9284-b3705fd0899e" /></br>
