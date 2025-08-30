@@ -76,22 +76,33 @@ Under `Network Connections`,  renamed the NAT adapter to `_Internet` and the int
 - **Subnet mask:** `255.255.255.0`  
 - **Preferred DNS server:** `127.0.0.1`
 
----
+<img width="761" height="525" alt="Image" src="https://github.com/user-attachments/assets/75dbe910-e228-475c-8aa3-0c31cc9d7e04" />
 
+---
 
 ### Step 5: Set Up `Active Directory`
 
-In `Server Manager`, we began by launching the `Add Roles and Features` Wizard to install `Active Directory Domain Services` (AD DS). During the setup, we also included `Group Policy Management` and `Remote Server Administration Tools` (RSAT) to enable centralized domain control and administrative functionality.
+In `Server Manager`, we began by launching the `Add Roles and Features` Wizard to install `Active Directory Domain Services` (AD DS). During the setup, also included `Group Policy Management` and `Remote Server Administration Tools` (RSAT) to enable centralized domain control and administrative functionality.
+
+<img width="997" height="645" alt="Image" src="https://github.com/user-attachments/assets/73646b34-37f2-431f-8b95-527c29c9d6a5" />
+
+<img width="783" height="556" alt="Image" src="https://github.com/user-attachments/assets/d2b698f4-b1fb-45d3-adbf-7476d755e1fe" />
 
 After completing the role installation, we proceeded with the `post-deployment configuration` by promoting the server to a domain controller. During the configuration, we created a new forest with the root domain name `mydomain.com`, and enabled both the `Domain Name System` (DNS) server and `Global Catalog` (GC) options. We also set the NetBIOS domain name to `MYDOMAIN`.
+
+<img width="1007" height="767" alt="Image" src="https://github.com/user-attachments/assets/3b2a067b-ec45-4b7c-8cc5-88602f6559f7" />
 
 ---
 
 ### Step 6: Set up `Domain Admins` and `Domain Users`
 
-After logging back into the server, we navigated to `Active Directory Users and Computers` to begin configuring domain objects. We created a new `Organizational Unit` (OU) named `_ADMINS`, and within that OU, added a new user account with the full name `Briana Willis` and the user logon name `a-bwillis`.
+After logging back into the server, we navigated to `Active Directory Users and Computers` to begin configuring domain objects. We created a new `Organizational Unit` (OU) named `_ADMINS`, and within that OU, added a new user account with the full name `Maffy Nepolian` and the user logon name `Maffyn`.
 
-Within `Briana Willis’` account properties in `Active Directory Users and Computers`, we navigated to the `Member Of` tab and added the user to the `Domain Admins` group. This granted her administrative privileges across the domain. 
+<img width="437" height="402" alt="Image" src="https://github.com/user-attachments/assets/ee2fbafd-2645-44c3-a512-e04bd75ae4fc" />
+
+Within `Maffy Nepolian’` account properties in `Active Directory Users and Computers`, we navigated to the `Member Of` tab and added the user to the `Domain Admins` group. This granted her administrative privileges across the domain. 
+
+<img width="1003" height="750" alt="Image" src="https://github.com/user-attachments/assets/5a2b1ca9-0b73-4aca-af10-23529aadddbe" />
 
 ---
 
