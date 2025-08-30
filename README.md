@@ -52,14 +52,16 @@ For networking, `Network Adapter 1` was enabled and attached to `NAT` to allow i
 <img width="1386" height="597" alt="Image" src="https://github.com/user-attachments/assets/44180757-445a-42e5-a6d1-699e6107daf0" />
 
 <img width="1385" height="595" alt="Image" src="https://github.com/user-attachments/assets/72c5847e-75b4-4197-a930-c974a3273bbf" />
+
 ---
 
 ### Step 3: `Windows Setup`
 
 Powered on the virtual machine and proceeded through the Windows Server 2019 installation process using the ISO image.
 
+<img width="637" height="477" alt="Image" src="https://github.com/user-attachments/assets/c0d80f2e-1a97-4f8d-a9a8-730f796edee2" />
 
-*Windows Server 2019 Standard Evaluation (Desktop Experience) → Accept the license terms → Username: Administrator → Password: Password18*
+*Windows Server 2019 Standard Evaluation (Desktop Experience) → Accept the license terms → Username: Administrator → Password: Password1*
 
 ---
 
@@ -67,7 +69,9 @@ Powered on the virtual machine and proceeded through the Windows Server 2019 ins
 
 Checked the `network connection details` of the virtual machine and observed it was automatically assigned an IPv4 address of `169.254.120.207`, indicating an `APIPA` (Automatic Private IP Addressing) address.
 
-Under `Network Connections`, we renamed the NAT adapter to `Internet` and the internal network adapter to `Internal_Network` for better clarity. The `Internet_Network` adapter was then manually configured with the following static IP settings:  
+<img width="357" height="434" alt="Lab 9" src="https://github.com/user-attachments/assets/45c3d59a-f363-406e-b31b-a33ed6a64961" /></br>
+
+Under `Network Connections`,  renamed the NAT adapter to `_Internet` and the internal network adapter to `_X_Internal_Network` for better clarity. The `_X_Internet_Network` adapter was then manually configured with the following static IP settings:  
 - **IP address:** `172.16.0.1`  
 - **Subnet mask:** `255.255.255.0`  
 - **Preferred DNS server:** `127.0.0.1`
