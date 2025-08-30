@@ -125,6 +125,11 @@ Back in `Server Manager`, we launched the `Add Roles and Features` Wizard again 
 
 We navigated to `Tools` > `DHCP` and launched the `New Scope Wizard` to configure a DHCP scope. We named the scope `172.16.0.100-200` and set the IP address range from `172.16.0.100` to `172.16.0.200` with a subnet mask of `255.255.255.0` (prefix length 24). The router (default gateway) was set to `172.16.0.1`, and the parent domain was specified as `mydomain.com`. After activating, authorizing, and refreshing the DHCP server, its status displayed a green icon indicating it was functioning properly.
 
+<img width="167" height="172" alt="Lab 77" src="https://github.com/user-attachments/assets/cbfe1307-c73c-4d5b-9284-b3705fd0899e" /></br>
+
+<img width="271" height="378" alt="Lab 78" src="https://github.com/user-attachments/assets/f484b260-c072-473e-9c35-a2888a5f4902" /></br>
+
+
 ---
 
 ### Step 9: Bulk User Creation with `PowerShell` in `Active Directory`
