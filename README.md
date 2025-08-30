@@ -41,11 +41,13 @@ Designed and deployed a virtualized Windows domain lab using `VirtualBox`, `Wind
 
 The virtual machine, named `Domain-Controller`, was configured as a domain controller using the `Windows Server 2019 ISO`. It was provisioned with 2048 MB of RAM and 4 virtual CPUs to support `Active Directory` and core infrastructure services.
 
+<img width="1283" height="685" alt="Image" src="https://github.com/user-attachments/assets/bc0b5d6e-37d6-4e42-bcb7-7ad756fef060" />
+
 ---
 
 ### Step 2: Configure `Network Adapters`
 
-For networking, `Network Adapter 1` was enabled and attached to `NAT` to allow internet access. `Network Adapter 2` was connected to an `internal network` named `Test 3` to facilitate isolated communication between lab machines without external exposure.
+For networking, `Network Adapter 1` was enabled and attached to `NAT` to allow internet access. `Network Adapter 2` was connected to an `internal network` named `intnet` to facilitate isolated communication between lab machines without external exposure.
 
 
 ---
