@@ -1,4 +1,3 @@
-# Active-Directory
 
 <h1 = align=center>𝙷𝙾𝙼𝙴 𝙻𝙰𝙱 - 𝙰𝙲𝚃𝙸𝚅𝙴 𝙳𝙸𝚁𝙴𝙲𝚃𝙾𝚁𝚈</h1>
 <h2 = align=center>Bulk User Provisioning with PowerShell</h2>
@@ -183,12 +182,17 @@ Before running the script to create all 1,000 users, I tested its functionality 
 
 The virtual machine, named `Client1`, was created using the Windows 10 ISO and provisioned with 4096 MB of RAM and 4 virtual CPUs. Network Adapter 1 was enabled on the same internal network as our domain controller, `intnet`.
 
+<img width="1481" height="593" alt="Image" src="https://github.com/user-attachments/assets/16ca6b2e-09e1-4e17-ae97-b242cdd91b3e" />
+
 ---
 
 ### Step 2: `Windows Setup`
 
 Powered on the virtual machine and proceeded through the Windows 10 installation process using the ISO image.
-*Windows Server 10 Pro → Accept the license terms → Username: bwillis → Password: Password18*
+
+<img width="635" height="475" alt="Lab 20" src="https://github.com/user-attachments/assets/3ed47f26-c3dd-4559-8da0-4576b3284a63" /></br>
+
+*Windows Server 10 Pro → Accept the license terms → Username: Maffyn → Password: Password1*
 
 ---
 
@@ -221,8 +225,6 @@ In `System Properties`, I changed the computer name to `Client1` and selected `D
 ## 🔑 HOW TO MANUALLY RESET A PASSWORD
 
 To reset a user's password in `Active Directory`, press `Win + R`, type `dsa.msc`, and press Enter to open `Active Directory Users and Computers`. Locate the user account—in this case, `Maffyn`—by browsing to the appropriate Organizational Unit. Right-click the user and select `Reset Password`.
-
-<img width="512" height="509" alt="Lab 116" src="https://github.com/user-attachments/assets/6c6f078a-b4d0-4283-a918-3bc202cd1397" /></br>
 
 Assign an easy-to-remember password `Password1`, check `User must change password at next logon`, and also check `Unlock the user’s account` if it was previously locked. This process restores access while enforcing a secure password update upon next login.
 
