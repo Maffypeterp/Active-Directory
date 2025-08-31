@@ -144,7 +144,7 @@ To efficiently add 1,000+ user accounts to `Active Directory`, we used a `PowerS
 
 **Script:**
 ```powershell
-$PASSWORD_FOR_USERS   = "Password18" 
+$PASSWORD_FOR_USERS   = "Password1" 
 $USER_FIRST_LAST_LIST = Get-Content .\names.txt
 # ------------------------------------------------------ #
 
@@ -173,7 +173,7 @@ foreach ($n in $USER_FIRST_LAST_LIST) {
 <img width="761" height="528" alt="Image" src="https://github.com/user-attachments/assets/a49b7a9a-c504-43de-a06a-0b6510518195" />
 
 
-Before running the script to create all 1,000 users, I tested its functionality by manually inserting my name, `Briana Willis`, as the first entry in the `names.txt` file. After executing the PowerShell script, a total of 1,001 users were created in Active Directory, confirming that the script worked as intended. The test user account `bwillis` was successfully generated using the naming convention implemented in the script, verifying that both the account creation logic and OU assignment were functioning properly.
+Before running the script to create all 1,000 users, I tested its functionality by manually inserting my name, `Maffy Nepolian`, as the first entry in the `names.txt` file. After executing the PowerShell script, a total of 1,001 users were created in Active Directory, confirming that the script worked as intended. The test user account `Maffyn` was successfully generated using the naming convention implemented in the script, verifying that both the account creation logic and OU assignment were functioning properly.
 
 ---
 
@@ -181,7 +181,7 @@ Before running the script to create all 1,000 users, I tested its functionality 
 
 ### Step 1: `Windows 10` Virtual Machine Creation and Provisioning
 
-The virtual machine, named `Client1`, was created using the Windows 10 ISO and provisioned with 4096 MB of RAM and 4 virtual CPUs. Network Adapter 1 was enabled on the same internal network as our domain controller, `test 3`.
+The virtual machine, named `Client1`, was created using the Windows 10 ISO and provisioned with 4096 MB of RAM and 4 virtual CPUs. Network Adapter 1 was enabled on the same internal network as our domain controller, `intnet`.
 
 ---
 
@@ -194,41 +194,57 @@ Powered on the virtual machine and proceeded through the Windows 10 installation
 
 ### Step 3: Confirming `DHCP` Functionality
 
-After setting up `Client1`, I logged in using the `bwillis` account with the default credentials for the first time. I then opened a command prompt and ran `ipconfig` to verify network settings. The Ethernet adapter showed the following configuration:
+After setting up `Client1`, I logged in using the `Maffyn` account with the default credentials for the first time. I then opened a command prompt and ran `ipconfig` to verify network settings. The Ethernet adapter showed the following configuration:
+
+<img width="538" height="280" alt="Lab 100" src="https://github.com/user-attachments/assets/d3cf4e9c-3cd4-4d3e-8dc2-33f0abed07a9" /></br>
 
 These values confirm that the `DHCP` server is functioning correctly and issuing addresses within the defined scope, along with proper DNS domain suffix assignment. To validate `DNS` resolution, I successfully pinged `www.google.com` to confirm external connectivity and pinged `mydomain.com` to verify internal name resolution to the domain controller.
+
+<img width="512" height="279" alt="Lab 101" src="https://github.com/user-attachments/assets/3ac7403f-e9ba-423a-980c-084accce8573" /></br>
+
+<img width="464" height="205" alt="Lab 102" src="https://github.com/user-attachments/assets/ddec1a42-9364-4307-bb56-cecdc9de6196" /></br>
+
 
 ---
 
 ### Step 4: Join `Client1` to the Domain
 
 In `System Properties`, I changed the computer name to `Client1` and selected `Domain` under the `Member of` section. I entered `mydomain.com` as the domain name and was prompted to provide credentials. After authentication, the system was successfully added to the domain and prompted for a restart to apply the changes.
+
+<img width="297" height="147" alt="Lab 106" src="https://github.com/user-attachments/assets/236cb17a-d5ba-48a0-bf7c-ba0c01c23d7b" /></br>
+
+<img width="745" height="521" alt="Lab 108" src="https://github.com/user-attachments/assets/d500ba67-c71a-42ab-819c-9d9118eb63d2" /></br>
+
+
 ---
 
 ## 🔑 HOW TO MANUALLY RESET A PASSWORD
 
-To reset a user's password in `Active Directory`, press `Win + R`, type `dsa.msc`, and press Enter to open `Active Directory Users and Computers`. Locate the user account—in this case, `bwillis`—by browsing to the appropriate Organizational Unit. Right-click the user and select `Reset Password`.
+To reset a user's password in `Active Directory`, press `Win + R`, type `dsa.msc`, and press Enter to open `Active Directory Users and Computers`. Locate the user account—in this case, `Maffyn`—by browsing to the appropriate Organizational Unit. Right-click the user and select `Reset Password`.
 
 <img width="512" height="509" alt="Lab 116" src="https://github.com/user-attachments/assets/6c6f078a-b4d0-4283-a918-3bc202cd1397" /></br>
 
 Assign an easy-to-remember password `Password1`, check `User must change password at next logon`, and also check `Unlock the user’s account` if it was previously locked. This process restores access while enforcing a secure password update upon next login.
+
+<img width="376" height="254" alt="Lab 117" src="https://github.com/user-attachments/assets/6c9c166a-fe9a-4a72-a582-b96636af8192" /></br>
+
 ---
 
 ## HOW TO AUTOMATE PASSWORD RESETS
 
-Password resets can also be automated using `PowerShell`, which is especially useful for bulk or remote management tasks. The following script resets the password for the user `bwillis`, enforces a password change at next logon, unlocks the account if it was locked, and ensures the account is enabled:
+Password resets can also be automated using `PowerShell`, which is especially useful for bulk or remote management tasks. The following script resets the password for the user `Maffyn`, enforces a password change at next logon, unlocks the account if it was locked, and ensures the account is enabled:
 
 ```powershell
 
 # Reset password
-Set-ADAccountPassword -Identity bwillis -Reset -NewPassword (ConvertTo-SecureString "Password1234567890!@" -AsPlainText -Force)
+Set-ADAccountPassword -Identity Maffyn -Reset -NewPassword (ConvertTo-SecureString "Password1234567890!@" -AsPlainText -Force)
 
 # Require password change at next logon
-Set-ADUser -Identity bwillis -ChangePasswordAtLogon $true
+Set-ADUser -Identity Maffyn -ChangePasswordAtLogon $true
 
 # Unlock and enable the account
-Unlock-ADAccount -Identity bwillis
-Enable-ADAccount -Identity bwillis
+Unlock-ADAccount -Identity Maffyn
+Enable-ADAccount -Identity Maffyn
 ```
 
 ---
